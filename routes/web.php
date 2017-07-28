@@ -11,26 +11,29 @@
 |
 */
 
-Route::get('/', [ 
+//Route for home
+Route::get('/', [
 
 	'uses' => 'TodosController@index',
 	'as' => 'todos'
-	
+
 	]);
 
-
-Route::get('/new', [ 
+// Get request for new post
+Route::get('/new', [
 
 	'uses' => 'PagesController@new'
-	
+
 	]);
 
+// Creating and passing a new todo
 Route::post('/create/todo', [
 
 	'uses' => 'TodosController@store'
 
 	]);
 
+// Deleting a todo
 Route::get('/todo/delete/{id}', [
 
 	'uses' => 'TodosController@delete',
@@ -38,6 +41,7 @@ Route::get('/todo/delete/{id}', [
 
 	]);
 
+// return view for updating todo
 Route::get('/todo/update/{id}', [
 
 	'uses' => 'TodosController@update',
@@ -45,6 +49,7 @@ Route::get('/todo/update/{id}', [
 
 	]);
 
+// saving new todos
 Route::post('/todo/save/{id}', [
 
 	'uses' => 'TodosController@save',
@@ -52,7 +57,8 @@ Route::post('/todo/save/{id}', [
 
 	]);
 
-Route::get('/todo/completed/{id}', [ 
+// state of todo
+Route::get('/todo/completed/{id}', [
 
 	'uses' => 'TodosController@completed',
 	'as' => 'todo.completed'
